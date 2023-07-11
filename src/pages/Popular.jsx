@@ -1,11 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import Header from '../components/Header'
+import { getAnimePopular } from '../services/api';
+import CardAnime from '../components/Card/CardAnime';
 
 function Popular() {
-  return (
-    <div className='bg-white w-full h-full'>
-        <h1>Popular</h1>
-    </div>
-  )
+    const [popularAnime, setPopularAnime] = useState([])
+
+    useEffect( () => {
+        getAnimePopular().then((res) => {
+            setPopularAnime(res)
+        })
+    }, []);
+
+    return (
+        <>
+            <Header />
+            <div className="container mx-auto w-full p-6">
+                <div className="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 gap-[24px]">
+                    {popularAnime.map((anime, index) => {
+                        return (
+                            <CardAnime key={index} rates={anime.score} cardTitle={anime.title} imgSrc={anime.images.jpg.large_image_url} href={`/detailanime/${anime.mal_id}`}/>
+                        )
+                    })}
+                </div>
+            </div>
+        </>
+    )
 }
 
 export default Popular

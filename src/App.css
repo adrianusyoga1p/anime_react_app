@@ -49,3 +49,14 @@ body{
     font-size: 20px;
     cursor: pointer;
 }
+
+.btn-back{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background: var(--colorPrimary);
+}

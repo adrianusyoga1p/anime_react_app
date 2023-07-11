@@ -9,3 +9,8 @@
     background: #fff;
     color: var(--colorBlack);
 }
+
+.navbar-link.active{
+    background: #fff;
+    color: var(--colorBlack);
+}

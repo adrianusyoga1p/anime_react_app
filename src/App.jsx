@@ -17,7 +17,7 @@ function App() {
                 <Route path='/ongoing' element={<OnGoing/>} />
                 <Route path='/newrelease' element={<NewRelease/>} />
                 <Route path='/upcoming' element={<UpComing/>} />
-                <Route path='/detailanime/:id/:title' element={<DetailAnime/>} />
+                <Route path='/detailanime/:id' element={<DetailAnime/>} />
             </Routes>
         </>
     )

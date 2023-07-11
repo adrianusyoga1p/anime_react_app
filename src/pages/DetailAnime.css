@@ -1,0 +1,13 @@
+.titleDetail{
+    text-transform: uppercase;
+    background: linear-gradient(to right, var(--colorPrimary) 50%, #1cc9c9 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+}
+
+.detailAnime{
+    border-radius: 12px;
+    box-shadow: 2px 2px 15px #58585828;
+    width: 100%;
+}
