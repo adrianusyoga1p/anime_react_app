@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router-dom'
 import Popular from './pages/Popular'
 import NewRelease from './pages/NewRelease'
 import UpComing from './pages/UpComing'
-import OnGoing from "./pages/Ongoing"
+import OnGoing from "./pages/OnGoing"
 import DetailAnime from "./pages/DetailAnime"
 
 function App() {
