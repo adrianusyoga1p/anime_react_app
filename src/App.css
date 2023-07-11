@@ -26,6 +26,7 @@ body{
 
 .input-wrapper{
     font-size: 16px;
+    max-width: 100%;
     width: 800px;
     position: relative;
 }

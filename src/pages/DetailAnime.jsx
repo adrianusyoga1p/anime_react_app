@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import { getAnimeList } from '../services/api'
+import { useLocation, useParams } from 'react-router-dom'
+import { getAnimeList, getAnimePopular } from '../services/api'
 import { HiArrowLeft } from 'react-icons/hi';
 import './DetailAnime.css'
 
@@ -10,11 +10,20 @@ function DetailAnime() {
 
     const { id } = useParams([]);
 
+    const { pathname } = useLocation();
+
     useEffect(() => {
-        getAnimeList().then((res) => {
-            setDetailAnime(res)
-        })
-    }, []);
+        if(pathname.split('/').includes('popular')){
+            getAnimePopular().then((res) => {
+                setDetailAnime(res)
+            })
+        } else {
+            getAnimeList().then((res) => {
+                setDetailAnime(res)
+                console.log(pathname)
+            })
+        }
+    }, [pathname]);
 
     return (
         <div className='w-full h-full container flex flex-col relative mx-auto py-[64px]'>
