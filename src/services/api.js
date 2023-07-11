@@ -12,6 +12,8 @@ export const getAnimePopular = async () => {
     return anime.data.data;
 }
 
-export const searchAnime = async () => {
-
+export const searchAnime = async (id) => {
+    const anime = await axios.get(`${apiUrl}/anime/${id}/full`);
+    // return anime.data.data;
+    console.log(anime)
 }

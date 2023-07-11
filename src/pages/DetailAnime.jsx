@@ -20,7 +20,6 @@ function DetailAnime() {
         } else {
             getAnimeList().then((res) => {
                 setDetailAnime(res)
-                console.log(pathname)
             })
         }
     }, [pathname]);
