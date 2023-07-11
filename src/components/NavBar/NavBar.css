@@ -1,0 +1,11 @@
+.navbar-link{
+    padding: 12px 24px;
+    border-radius: 50px;
+    border: 1px solid #fff;
+    transition: .4s;
+}
+
+.navbar-link:hover{
+    background: #fff;
+    color: var(--colorBlack);
+}

@@ -1,0 +1,46 @@
+.card-anime{
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 3px 3px 15px #5858585b;
+    position: relative;
+    transition: .4s;
+}
+
+.poster-anime{
+    height: 320px;
+    overflow: hidden;
+}
+
+.poster-anime img{
+    object-fit: cover;
+    object-position: center;
+    transition: .4s;
+}
+
+.card-anime:hover .card-body{
+    opacity: 1;
+    pointer-events: visible;
+    transform: translateY(0);
+}
+
+.card-anime:hover .poster-anime img{
+    transform: scale(115%);
+}
+
+.card-body{
+    position: absolute;
+    inset: 0;
+    background: #0000009a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    padding: 16px 32px;
+    gap: 8px;
+    z-index: 2;
+    transform: translateY(100%);
+    pointer-events: none;
+    transition: .4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
