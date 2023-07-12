@@ -8,12 +8,11 @@ export const getAnimeList = async () => {
 }
 
 export const getAnimePopular = async () => {
-    const anime = await axios.get(`${apiUrl}/top/anime`);
-    return anime.data.data;
+    const popular = await axios.get(`${apiUrl}/top/anime`);
+    return popular.data.data;
 }
 
-export const searchAnime = async (id) => {
-    const anime = await axios.get(`${apiUrl}/anime/${id}/full`);
-    // return anime.data.data;
-    console.log(anime)
+export const searchAnime = async () => {
+    const search = await axios.get(`${apiUrl}/anime`);
+    return search.data.data;
 }

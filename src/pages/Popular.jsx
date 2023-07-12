@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import Header from '../components/Header'
-import { getAnimePopular } from '../services/api';
+import { getAnimePopular, searchAnime } from '../services/api';
 import CardAnime from '../components/Card/CardAnime';
 
 function Popular() {
-    const [popularAnime, setPopularAnime] = useState([])
+    const [popularAnime, setPopularAnime] = useState([]);
+    // const [search, setSearch] = useState("")
 
     useEffect( () => {
         getAnimePopular().then((res) => {
             setPopularAnime(res)
+        })
+        .catch(error => {
+            console.log('error fetching data' + error);
         })
     }, []);
 
@@ -20,8 +24,8 @@ function Popular() {
                     {popularAnime.map((anime, index) => {
                         return (
                             <CardAnime key={index} rates={anime.score} cardTitle={anime.title} imgSrc={anime.images.jpg.large_image_url} href={`/detailanime/popular/${anime.mal_id}`}/>
-                        )
-                    })}
+                            )
+                        })}
                 </div>
             </div>
         </>
