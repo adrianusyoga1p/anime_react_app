@@ -3,9 +3,17 @@ import './Header.css'
 import NavBar from './NavBar/NavBar'
 import { HiSearch } from 'react-icons/hi'
 import { Link } from 'react-router-dom'
-import { searchAnime } from '../services/api'
+// import { searchAnime } from '../services/api'
 
-function Header() {
+function Header(props) {
+    // const [searchPopular, setSearchPopular] = useState("");
+
+    // useEffect(() => {
+    //     searchAnime((res) => {
+    //         setSearchPopular(res);
+    //     })
+    // }, []);
+
     return (
         <div className='w-full p-8' style={{background: 'var(--colorPrimary)'}}>
             <div className="container mx-auto">
@@ -16,7 +24,7 @@ function Header() {
                             <HiSearch/>
                         </button>
                         {/* <input type="text" value={input} onChange={(e) => valueInput(e.target.value)} /> */}
-                        <input type="text" />
+                        <input type="text" onChange={props.search}/>
                     </div>
                     <NavBar/>
                 </div>
