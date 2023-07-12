@@ -19,6 +19,9 @@ function App() {
                 <Route path='/upcoming' element={<UpComing/>} />
                 <Route path='/detailanime/:id' element={<DetailAnime/>} />
                 <Route path='/detailanime/popular/:id' element={<DetailAnime/>} />
+                <Route path='/detailanime/ongoing/:id' element={<DetailAnime/>} />
+                <Route path='/detailanime/newrelease/:id' element={<DetailAnime/>} />
+                <Route path='/detailanime/upcoming/:id' element={<DetailAnime/>} />
             </Routes>
         </>
     )

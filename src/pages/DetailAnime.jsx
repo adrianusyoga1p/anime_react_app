@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useLocation, useParams } from 'react-router-dom'
+import { useLocation, useParams, useNavigate } from 'react-router-dom'
 import { getAnimeList, getAnimePopular } from '../services/api'
 import { HiArrowLeft } from 'react-icons/hi';
 import './DetailAnime.css'
@@ -24,13 +24,19 @@ function DetailAnime() {
         }
     }, [pathname]);
 
+    let navigate = useNavigate();
+
+    let previously = () => {
+        navigate(-1)
+    }
+
     return (
         <div className='w-full h-full container flex flex-col relative mx-auto py-[64px]'>
             {detailAnime.map((anime) => {
                 if(anime.mal_id == id){
                     return <div key={anime.mal_id} className="flex flex-col gap-6 px-[24px]">
                         <div className="flex gap-4 items-center">
-                            <button className="btn btn-circle btn-back p-2"><HiArrowLeft/></button>
+                        <button className="btn btn-circle btn-back p-2" onClick={previously}><HiArrowLeft/></button>
                             <h1 className="titleDetail m-0">{anime.title}</h1>
                         </div>
                         <div className="detailAnime flex flex-col p-6 gap-[24px]">
@@ -52,6 +58,12 @@ function DetailAnime() {
                                 <p className='text-[15px]'>{anime.synopsis}</p>
                             </div>
                         </div>
+                        <h1 className="titleDetail m-0">Trailer</h1>
+                        {anime.trailer.embed_url ? (
+                            <iframe src={anime.trailer.embed_url} className='videoTrailer'></iframe>
+                        ) : (
+                            <h1>Trailer tidak tersedia</h1>
+                        )}
                     </div>
                 }
             })}
