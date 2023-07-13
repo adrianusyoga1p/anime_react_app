@@ -3,19 +3,21 @@ import CardAnime from './components/Card/CardAnime'
 import Header from './components/Header'
 import { useEffect, useState } from 'react'
 import { getAnimeList } from './services/api'
+import { HiArrowLeft, HiArrowRight } from 'react-icons/hi';
 
 function Index() {
     const [animeList, setAnimeList] = useState([]);
+    const [pageAnime, setPageAnime] = useState(1);
     const [state, setState] = useState({
         query: '',
         list : []
     });
 
     useEffect( () => {
-        getAnimeList().then((res) => {
+        getAnimeList(pageAnime).then((res) => {
             setAnimeList(res)
-        })
-    }, []);
+        }); console.log(pageAnime)
+    }, [pageAnime]);
 
     const search = (e) => {
         const results = animeList.filter((anime) => {
@@ -34,14 +36,18 @@ function Index() {
                 <div className="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 gap-[24px]">
                 {(state.query == '' ? animeList.map(anime => {
                         return (
-                            <CardAnime key={anime.mal_id} rates={anime.score} cardTitle={anime.title} imgSrc={anime.images.jpg.large_image_url} href={`/detailanime/popular/${anime.mal_id}`}/>
+                            <CardAnime key={anime.mal_id} rates={anime.score} cardTitle={anime.title} imgSrc={anime.images.jpg.large_image_url} href={`/detailanime/${anime.mal_id}`}/>
                         )
                     })
                      : !state.list.length ? "No matching anime" : state.list.map(anime => {
                         return (
-                            <CardAnime key={anime.mal_id} rates={anime.score} cardTitle={anime.title} imgSrc={anime.images.jpg.large_image_url} href={`/detailanime/popular/${anime.mal_id}`}/>
+                            <CardAnime key={anime.mal_id} rates={anime.score} cardTitle={anime.title} imgSrc={anime.images.jpg.large_image_url} href={`/detailanime/${anime.mal_id}`}/>
                         )
                     }))}
+                </div>
+                <div className="flex w-full items-center justify-center gap-[24px] mt-6">
+                    <button className='btn-back' onClick={()=> setPageAnime((curr) =>  curr == 1 ? curr : curr - 1)}><HiArrowLeft /></button>
+                    <button className='btn-back' onClick={()=> setPageAnime((curr) => curr + 1)}><HiArrowRight /></button>
                 </div>
             </div>
         </>
