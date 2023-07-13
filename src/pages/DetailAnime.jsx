@@ -9,7 +9,6 @@ function DetailAnime() {
 
     const [detailAnime, setDetailAnime] = useState([]);
     const [pageAnime, setPageAnime] = useState(1);
-    // const [listEpisode, setListEpisode] = useState([]);
 
     const { id } = useParams([]);
 
