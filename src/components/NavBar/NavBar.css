@@ -14,3 +14,26 @@
     background: #fff;
     color: var(--colorBlack);
 }
+
+.navbar.fixed{
+    bottom: 10px;
+    right: 10px;
+    border-radius: 50%;
+    z-index: 10;
+    background-color: var(--colorPrimary);
+    width: 60px;
+    height: 60px;
+    transition: .4s;
+}
+
+.navbar.fixed:hover .navbar-items{
+    opacity: 1;
+}
+
+.navbar.fixed .navbar-items{
+    bottom: 30px;
+    right: 30px;
+    transition: .4s;
+    opacity: 0;
+    border-radius: 12px;
+}

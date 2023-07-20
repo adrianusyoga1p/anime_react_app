@@ -18,10 +18,10 @@ function App() {
                 <Route path='/newrelease' element={<NewRelease/>} />
                 <Route path='/upcoming' element={<UpComing/>} />
                 <Route path='/detailanime/:id' element={<DetailAnime/>} />
-                <Route path='/detailanime/popular/:id' element={<DetailAnime/>} />
-                <Route path='/detailanime/ongoing/:id' element={<DetailAnime/>} />
-                <Route path='/detailanime/newrelease/:id' element={<DetailAnime/>} />
-                <Route path='/detailanime/upcoming/:id' element={<DetailAnime/>} />
+                <Route path='/popular/detailanime/:id' element={<DetailAnime/>}/>
+                <Route path='/ongoing/detailanime/:id' element={<DetailAnime/>} />
+                <Route path='/newrelease/detailanime/:id' element={<DetailAnime/>} />
+                <Route path='/upcoming/detailanime/:id' element={<DetailAnime/>} />
             </Routes>
         </>
     )

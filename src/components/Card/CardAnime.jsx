@@ -1,4 +1,5 @@
-// import React from 'react'
+import React from 'react'
+// import { useEffect, useState } from 'react'
 import './CardAnime.css'
 import { HiStar } from 'react-icons/hi'
 import { Link } from 'react-router-dom'

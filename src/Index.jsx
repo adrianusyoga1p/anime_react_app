@@ -15,12 +15,13 @@ function Index() {
 
     useEffect( () => {
         getAnimeList(pageAnime).then((res) => {
-            setAnimeList(res)
-        }); console.log(pageAnime)
+            setAnimeList(res.data)
+            // console.log(res.data)
+        });
     }, [pageAnime]);
 
     const search = (e) => {
-        const results = animeList.filter((anime) => {
+        const results = animeList.filter(anime => {
             return anime.title.toLowerCase().includes(e.target.value.toLowerCase())
         })
         setState({ 
@@ -31,23 +32,23 @@ function Index() {
 
     return (
         <>
-            <Header search={search}/>
+            <Header search={search} />
             <div className="container mx-auto w-full p-6">
+                <div className="flex w-full items-center justify-end gap-[24px] mb-6">
+                    <button className='btn-back' onClick={()=> setPageAnime((curr) =>  curr == 1 ? curr : curr - 1)}><HiArrowLeft /></button>
+                    <span>Page {pageAnime}</span>
+                    <button className='btn-back' onClick={()=> setPageAnime((curr) => curr + 1)}><HiArrowRight /></button>
+                </div>
                 <div className="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 gap-[24px]">
-                {(state.query == '' ? animeList.map(anime => {
+                {(state.query == '' ? animeList.map((anime, index) => {
                         return (
-                            <CardAnime key={anime.mal_id} rates={anime.score} cardTitle={anime.title} imgSrc={anime.images.jpg.large_image_url} href={`/detailanime/${anime.mal_id}`}/>
+                            <CardAnime key={index} rates={anime.score} cardTitle={anime.title} imgSrc={anime.images.jpg.large_image_url} href={`/detailanime/${anime.mal_id}`}/>
                         )
-                    })
-                     : !state.list.length ? "No matching anime" : state.list.map(anime => {
+                    }): !state.list.length ? "No matching anime" : state.list.map((anime, index) => {
                         return (
-                            <CardAnime key={anime.mal_id} rates={anime.score} cardTitle={anime.title} imgSrc={anime.images.jpg.large_image_url} href={`/detailanime/${anime.mal_id}`}/>
+                                <CardAnime key={index} rates={anime.score} cardTitle={anime.title} imgSrc={anime.images.jpg.large_image_url} href={`/detailanime/${anime.mal_id}`}/>
                         )
                     }))}
-                </div>
-                <div className="flex w-full items-center justify-center gap-[24px] mt-6">
-                    <button className='btn-back' onClick={()=> setPageAnime((curr) =>  curr == 1 ? curr : curr - 1)}><HiArrowLeft /></button>
-                    <button className='btn-back' onClick={()=> setPageAnime((curr) => curr + 1)}><HiArrowRight /></button>
                 </div>
             </div>
         </>

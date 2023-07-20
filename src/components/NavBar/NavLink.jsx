@@ -7,7 +7,7 @@ function NavLink({to, children, ...props}){
 
     return (
         <>
-            <Link className={`navbar-link text-white flex items-center ${isActive ? 'active' : ''}`} to={to} {...props}>
+            <Link className={`navbar-link text-black flex items-center ${isActive ? 'active' : ''}`} to={to} {...props}>
                 {children}
             </Link>
         </>
