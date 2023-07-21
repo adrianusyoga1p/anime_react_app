@@ -43,12 +43,12 @@ function Popular() {
                 <div className="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 gap-[24px]">
                     {(state.query == '' ? popularAnime.map((anime, index) => {
                         return (
-                            <CardAnime key={index} rates={anime.score} cardTitle={anime.title} imgSrc={anime.images.webp.large_image_url} href={`/popular/detailanime/${anime.mal_id}`}/>
+                            <CardAnime key={index} rates={anime.score} cardTitle={anime.title} imgSrc={anime.images.webp.large_image_url} href={`/popular/detailanime/${anime.mal_id}`} desc={anime.rating}/>
                         )
                     })
                      : !state.list.length ? "No matching anime" : state.list.map((anime, index) => {
                         return (
-                            <CardAnime key={index} rates={anime.score} cardTitle={anime.title} imgSrc={anime.images.webp.large_image_url} href={`/popular/detailanime/${anime.mal_id}`}/>
+                            <CardAnime key={index} rates={anime.score} cardTitle={anime.title} imgSrc={anime.images.webp.large_image_url} href={`/popular/detailanime/${anime.mal_id}`} desc={anime.rating}/>
                         )
                     }))}
                 </div>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getAnimeEpisodes } from '../../services/api';
 import { useParams } from 'react-router-dom';
+// import InfiniteScroll from 'react-infinite-scroll-component';
 
 function Episodes() {
     const [listEpisode, setListEpisode] = useState([]);
@@ -12,16 +13,28 @@ function Episodes() {
             setListEpisode(res)
             console.log(res)
         })
-    }, [id])
+    }, [id]);
 
     return (
         <>
-             {listEpisode.map((animeEpisode, index) => {
-                <div key={index} className="border rounded-md border-state-500 p-4">
-                    <h1 className='m-0'>{animeEpisode.mal_id}</h1>
-                    <h3>{animeEpisode.score}</h3>
-                </div>
-            })}
+            {/* <InfiniteScroll dataLength={listEpisode.length} next={fetchMoreData} hasMore={hasMore}> */}
+                {listEpisode.map((episode, index) => {
+                    <div key={index} className="border rounded-md border-state-500 p-4">
+                        <h1 className='m-0'>{episode.mal_id}</h1>
+                        <h3>{episode.title}</h3>
+                    </div>
+                })}
+            {/* </InfiniteScroll> */}
+            {/* {listEpisode.forEach((episode, index) => {
+                episode.length <= 11 ? (
+                    <></>
+                ) : (
+                    <div key={index} className="border rounded-md border-state-500 p-4">
+                        <h1 className='m-0'>{episode.mal_id}</h1>
+                        <h3>{episode.title}</h3>
+                    </div>
+                )
+            })} */}
         </>
     )
 }

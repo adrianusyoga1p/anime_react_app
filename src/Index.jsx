@@ -1,7 +1,7 @@
 // import React from 'react'
 import CardAnime from './components/Card/CardAnime'
 import Header from './components/Header'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { getAnimeList } from './services/api'
 import { HiArrowLeft, HiArrowRight } from 'react-icons/hi';
 
@@ -16,7 +16,6 @@ function Index() {
     useEffect( () => {
         getAnimeList(pageAnime).then((res) => {
             setAnimeList(res.data)
-            // console.log(res.data)
         });
     }, [pageAnime]);
 
