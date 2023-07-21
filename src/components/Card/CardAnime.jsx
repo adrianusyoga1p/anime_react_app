@@ -13,10 +13,10 @@ function CardAnime({cardTitle, imgSrc, rates, desc, href}) {
                         <img className="max-w-full h-full w-full object-cover" src={imgSrc} />
                     </div>
                     <div className="card-body">
-                        <h2 className='text-center font-bold text-white text-[20px]'>{cardTitle}</h2>
+                        <h2 className='text-center font-bold text-white text-[20px] title'>{cardTitle}</h2>
                         <div className="line"></div>
                         <h3 className='text-white flex items-center'><HiStar/><span>{rates}</span></h3>
-                        <p className="text-white">{desc}</p>
+                        <p className="text-white text-center">{desc}</p>
                     </div>
                 </div>
             </Link>

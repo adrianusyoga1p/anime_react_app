@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation, useParams, useNavigate } from 'react-router-dom'
-import { getDetailAnime, getAnimeEpisodes } from '../services/api'
+import { getDetailAnime } from '../services/api'
 import { HiArrowLeft } from 'react-icons/hi';
 import './DetailAnime.css'
 import Episodes from '../components/Episodes/Episodes';
@@ -8,7 +8,6 @@ import Episodes from '../components/Episodes/Episodes';
 function DetailAnime() {
 
     const [detailAnime, setDetailAnime] = useState([]);
-    const [listEpisode, setListEpisode] = useState([]);
 
     const { id } = useParams([]);
 
@@ -20,36 +19,11 @@ function DetailAnime() {
                 setDetailAnime(res)
                 // console.log(res)
             })
-            getAnimeEpisodes(id).then((res) => {
-                setListEpisode(res)
-                // console.log(res)
-            })
         } else {
             getDetailAnime(id).then((res) => {
                 setDetailAnime(res)
-                console.log(res)
+                // console.log(res)
             })
-            getAnimeEpisodes(id).then((res) => {
-                setListEpisode(res)
-                console.log(res)
-            })
-            // console.log('oke')
-            // const timer = setTimeout(() => {
-            //     getDetailAnime()
-            // }, 3000)
-            // return () => clearTimeout(timer)
-            // getAnimeEpisodes(id).then((res) => {
-            //     setListEpisode(res)
-            //     // if(res.ok){
-            //     //     setListEpisode(res)
-            //     // } else {
-            //     //     return Promise.reject('not found')
-            //     // }
-            //     // console.log(res)
-            // })
-            // .catch(error => {
-            //     console.log(error);
-            // })
         }
     }, [pathname, id]);
 
@@ -91,21 +65,16 @@ function DetailAnime() {
                             </div>
                         </div>
                         <h1 className="titleDetail m-0 md:text-[32px] text-[24px]">Trailer</h1>
-                        <div className="detailAnime flex flex-col">
                         {detailAnime.trailer.embed_url ? (
-                                <iframe src={detailAnime.trailer.embed_url} className='videoTrailer'></iframe>
+                                <div className="detailAnime flex flex-col">
+                                    <iframe src={detailAnime.trailer.embed_url} className='videoTrailer'></iframe>
+                                </div>
                             ) : (
                                 <h1 className='md:text-[32px] text-[24px]'>Trailer tidak tersedia</h1>
                             )}
-                        </div>
                         <h1 className="titleDetail m-0 md:text-[32px] text-[24px]">Episodes</h1>
                         <div className="detailAnime flex flex-col p-6 gap-[24px]">
-                            {listEpisode.slice(0,1).map((animeEpisode, index) => {
-                                <div key={index} className="border rounded-md border-state-500 p-4">
-                                    <h1 className='m-0'>{animeEpisode.mal_id}</h1>
-                                    <h3>{animeEpisode.score}</h3>
-                                </div>
-                            })}
+                            <Episodes/>
                         </div>
                     </div>
                 </div>
