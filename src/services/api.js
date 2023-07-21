@@ -3,12 +3,12 @@ import axios from "axios";
 const apiUrl = import.meta.env.VITE_BASEURL;
 
 export const getAnimeList = async (page) => {
-    const anime = await axios.get(`${apiUrl}/anime?page=${page}`);
+    const anime = await axios.get(`${apiUrl}/top/anime?page=${page}`);
     return anime.data;
 }
 
 export const getAnimePopular = async (page) => {
-    const popular = await axios.get(`${apiUrl}/top/anime?page=${page}`);
+    const popular = await axios.get(`${apiUrl}/anime?page=${page}&order_by=popularity`);
     return popular.data;
 }
 
@@ -24,12 +24,12 @@ export const getNewAnime = async(page) => {
 
 export const getDetailAnime = async (id) => {
     const detail = await axios.get(`${apiUrl}/anime/${id}`);
-    return detail.data.data;
+    return detail.data;
 }
 
 export const getAnimeEpisodes = async (id) => {
     const episode = await axios.get(`${apiUrl}/anime/${id}/episodes`);
-    return episode.data.data;
+    return episode.data;
 }
 
 

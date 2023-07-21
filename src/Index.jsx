@@ -16,7 +16,8 @@ function Index() {
     useEffect( () => {
         getAnimeList(pageAnime).then((res) => {
             setAnimeList(res.data)
-        });
+        })
+        return () => getAnimeList(pageAnime)
     }, [pageAnime]);
 
     const search = (e) => {

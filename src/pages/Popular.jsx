@@ -20,6 +20,7 @@ function Popular() {
         .catch(error => {
             console.log('error fetching data' + error);
         })
+        return () => getAnimePopular(pageAnime)
     }, [pageAnime]);
 
     const search = (e) => {

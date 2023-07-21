@@ -1,6 +1,6 @@
 import React from 'react'
 
-function NewRelease() {
+function Complete() {
   return (
     <div>
       
@@ -8,4 +8,4 @@ function NewRelease() {
   )
 }
 
-export default NewRelease
+export default Complete

@@ -33,6 +33,10 @@
     transition: .4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
+.card-anime:hover .card-body p{
+    margin-top: 0;
+}
+
 .card-anime:hover .poster-anime img{
     transform: scale(115%);
 }
@@ -50,9 +54,13 @@
     padding: 16px 32px;
     gap: 8px;
     z-index: 2;
-    transform: translateY(75%);
+    transform: translateY(70%);
     pointer-events: none;
     transition: .4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.card-body p{
+    margin-top: 15px;
 }
 
 .title{

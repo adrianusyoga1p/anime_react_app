@@ -16,7 +16,7 @@ function Header(props) {
                         <button className="icon-search">
                             <HiSearch/>
                         </button>
-                        <input type="text" onChange={props.search} placeholder="Search..." />
+                        <input type="text" onChange={props.search} placeholder="Search anime..." />
                     </div>
                     <NavBar/>
                 </div>

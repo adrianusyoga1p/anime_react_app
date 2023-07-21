@@ -16,15 +16,16 @@ function DetailAnime() {
     useEffect(() => {
         if(pathname.split('/').includes('popular')){
             getDetailAnime(id).then((res) => {
-                setDetailAnime(res)
+                setDetailAnime(res.data)
                 // console.log(res)
             })
         } else {
             getDetailAnime(id).then((res) => {
-                setDetailAnime(res)
+                setDetailAnime(res.data)
                 // console.log(res)
             })
         }
+        return () => getDetailAnime(id);
     }, [pathname, id]);
 
     let navigate = useNavigate();
@@ -66,16 +67,14 @@ function DetailAnime() {
                         </div>
                         <h1 className="titleDetail m-0 md:text-[32px] text-[24px]">Trailer</h1>
                         {detailAnime.trailer.embed_url ? (
-                                <div className="detailAnime flex flex-col">
-                                    <iframe src={detailAnime.trailer.embed_url} className='videoTrailer'></iframe>
-                                </div>
-                            ) : (
-                                <h1 className='md:text-[32px] text-[24px]'>Trailer tidak tersedia</h1>
-                            )}
+                            <div className="detailAnime flex flex-col">
+                                <iframe src={detailAnime.trailer.embed_url} className='videoTrailer'></iframe>
+                            </div>
+                        ) : (
+                            <h1 className='md:text-[32px] text-[24px]'>Trailer tidak tersedia</h1>
+                        )}
                         <h1 className="titleDetail m-0 md:text-[32px] text-[24px]">Episodes</h1>
-                        <div className="detailAnime flex flex-col p-6 gap-[24px]">
                             <Episodes/>
-                        </div>
                     </div>
                 </div>
             )}
