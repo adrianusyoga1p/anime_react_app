@@ -22,6 +22,11 @@ export const getNewAnime = async(page) => {
     return newAnime.data;
 }
 
+export const getCompleteAnime = async(page) => {
+    const complete = await axios.get(`${apiUrl}/anime?page=${page}&status=complete`);
+    return complete.data;
+}
+
 export const getDetailAnime = async (id) => {
     const detail = await axios.get(`${apiUrl}/anime/${id}`);
     return detail.data;
