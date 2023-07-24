@@ -17,7 +17,7 @@ function Index() {
         getAnimeList(pageAnime).then((res) => {
             setAnimeList(res.data)
         })
-        return () => getAnimeList(pageAnime)
+        // return () => getAnimeList(pageAnime)
     }, [pageAnime]);
 
     const search = (e) => {
