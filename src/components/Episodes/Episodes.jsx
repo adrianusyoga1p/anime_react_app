@@ -10,10 +10,12 @@ function Episodes() {
     useEffect(() => {
         getAnimeEpisodes(id).then(res => {
             setListEpisode(res.data)
-            console.log(res.data)
+            // console.log(res.data)
         })
         return () => getAnimeEpisodes(id)
     }, [id]);
+
+    console.log(listEpisode)
 
     return (
         <>
