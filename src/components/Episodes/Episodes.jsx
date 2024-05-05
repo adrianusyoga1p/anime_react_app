@@ -25,18 +25,14 @@ function Episodes() {
                     <h3>{episode.title}</h3>
                 </div>
             })} */}
-            {listEpisode.length === 0 ? (
-                    <h1>Episode Tidak Tersedia</h1>
-            ) : (
-                listEpisode.map((episode, index) => {
-                    <div className="detailAnime flex flex-col p-6 gap-[24px]">
-                        <div key={index} className="border rounded-md border-state-500 p-4">
-                            <h1 className='m-0'>{episode.mal_id}</h1>
-                            <h3>{episode.title}</h3>
-                        </div>
+            {listEpisode && listEpisode.map((episode, index) => {
+                <div className="detailAnime flex flex-col p-6 gap-[24px]">
+                    <div key={index} className="border rounded-md border-state-500 p-4">
+                        <h1 className='m-0'>{episode.mal_id}</h1>
+                        <h3>{episode.title}</h3>
                     </div>
-                })
-            )}
+                </div>
+            })}
         </>
     )
 }
