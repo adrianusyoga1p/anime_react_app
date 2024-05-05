@@ -23,7 +23,7 @@ function Episodes() {
                     <h3>{episode.title}</h3>
                 </div>
             })} */}
-            {listEpisode.length < 1 ? (
+            {listEpisode.length === 0 ? (
                     <h1>Episode Tidak Tersedia</h1>
             ) : (
                 listEpisode.map((episode, index) => {
