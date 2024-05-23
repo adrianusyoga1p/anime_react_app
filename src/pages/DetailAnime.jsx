@@ -37,7 +37,7 @@ function DetailAnime() {
     return (
         <>
             {detailAnime.length === 0 ? (
-                <></>
+                null
             ) : (
                 <div className='w-full h-full md:container container-fluid flex flex-col relative mx-auto py-[64px]'>
                     <div className="flex flex-col gap-6 px-[24px]">
